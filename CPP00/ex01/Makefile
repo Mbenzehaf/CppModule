@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/29 09:58:48 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/11/29 10:42:01 by mben-zeh         ###   ########.fr        #
+#    Created: 2023/11/29 15:05:28 by mben-zeh          #+#    #+#              #
+#    Updated: 2023/11/29 15:06:22 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
 CPP = c++
 
