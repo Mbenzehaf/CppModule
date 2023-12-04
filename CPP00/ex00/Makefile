@@ -6,7 +6,7 @@
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 09:58:48 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/11/29 10:42:01 by mben-zeh         ###   ########.fr        #
+#    Updated: 2023/12/01 19:30:42 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ ${NAME} : ${OBJS}
 clean : 
 	rm -rf ${OBJS}
 
-fclan : clean
+fclean : clean
 	rm -rf ${NAME}
 
 re : fclean all

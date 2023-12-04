@@ -6,7 +6,7 @@
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 15:07:22 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/11/29 15:07:39 by mben-zeh         ###   ########.fr        #
+#    Updated: 2023/12/01 17:22:29 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = test
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRCS = test.cpp
 
@@ -28,7 +28,7 @@ ${NAME} : ${OBJS}
 clean : 
 	rm -rf ${OBJS}
 
-fclan : clean
+fclean : clean
 	rm -rf ${NAME}
 
 re : fclean all

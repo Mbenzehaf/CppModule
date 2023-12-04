@@ -6,7 +6,7 @@
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 15:05:28 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/11/29 15:06:22 by mben-zeh         ###   ########.fr        #
+#    Updated: 2023/12/03 21:31:47 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ NAME = phonebook
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
+#-fsanitize=address -g3
 
-SRCS = megaphone.cpp
+SRCS = Contact.cpp PhoneBook.cpp main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
@@ -28,7 +29,7 @@ ${NAME} : ${OBJS}
 clean : 
 	rm -rf ${OBJS}
 
-fclan : clean
+fclean : clean
 	rm -rf ${NAME}
 
 re : fclean all
