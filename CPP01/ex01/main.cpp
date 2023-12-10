@@ -5,30 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 19:18:17 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/05 23:08:24 by mben-zeh         ###   ########.fr       */
+/*   Created: 2023/12/08 20:39:32 by mben-zeh          #+#    #+#             */
+/*   Updated: 2023/12/09 01:32:52 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
+
 int main(void)
 {
-    std :: string str;
-    PhoneBook phonebook;
-
-    while (1)
-    {
-        std::cout<<BOLDGREEN <<"ENTER COMMAND [ADD] or [SEARCH] or [EXIT]:"<<BOLDWHITE;
-        if(std::getline(std::cin,str).eof() || str == "EXIT")
-            return (str=="");
-        else if(str == "ADD")
-        {
-            phonebook.Add_Contact();
-        }else if(str == "SEARCH")
-        {
-             phonebook.Search_Contact();
-        }else
-            std::cerr << BOLDRED << "[INVALID COMMAND]" << std::endl;
-    }
+    int N;
+    Zombie *Zombies;
+    std :: cin >> N;
+    Zombies = zombieHorde(N,"mohammed");
+    for(int i = 0;i < N ;i++)
+        Zombies[i].announce();
+    delete[] Zombies;
     return (0);
 }
