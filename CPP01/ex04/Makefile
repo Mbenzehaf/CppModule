@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/09 02:38:22 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/12/10 23:07:19 by mben-zeh         ###   ########.fr        #
+#    Created: 2023/12/11 05:33:51 by mben-zeh          #+#    #+#              #
+#    Updated: 2023/12/11 05:56:37 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Weapon
+NAME = sed
 
 CPP = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address -g3
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp 
 
 OBJS = ${SRCS:.cpp=.o}
 

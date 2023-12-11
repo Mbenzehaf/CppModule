@@ -6,11 +6,12 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 00:19:19 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/08 00:57:54 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/11 00:34:47 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
 Zombie* newZombie( std::string name )
 {
     return (new Zombie(name));

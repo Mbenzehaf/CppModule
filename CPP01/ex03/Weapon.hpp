@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 02:39:54 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/10 01:46:46 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/11 05:24:03 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ class Weapon
 {
     std::string type;
     public :
-    Weapon(void);
-    Weapon(std::string);
-    ~Weapon(void);
-    std::string gettype(void);
-    void settype(std::string &);
+    Weapon(const std::string &);
+    std::string getType(void);
+    void setType(const std::string &);
 };
 #endif

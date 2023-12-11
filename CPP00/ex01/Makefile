@@ -6,7 +6,7 @@
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 15:05:28 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/12/03 21:31:47 by mben-zeh         ###   ########.fr        #
+#    Updated: 2023/12/10 23:03:17 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME = phonebook
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
-#-fsanitize=address -g3
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 SRCS = Contact.cpp PhoneBook.cpp main.cpp
 

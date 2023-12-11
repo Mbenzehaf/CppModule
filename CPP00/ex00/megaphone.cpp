@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:26:45 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/11/29 13:05:16 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/11 06:49:23 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int main(int ac,char **av)
                 std :: cout << (char)toupper((int)av[i][j]);
     }
     else
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+        std::cerr << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     std::cout<<std::endl;
 }
