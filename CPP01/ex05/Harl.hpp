@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 06:38:56 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/12 00:08:22 by mben-zeh         ###   ########.fr       */
+/*   Created: 2023/12/12 22:44:48 by mben-zeh          #+#    #+#             */
+/*   Updated: 2023/12/12 23:43:40 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SED_HPP__
-#define __SED_HPP__
-
+#ifndef __HARL_HPP__
+#define __HARL_HPP__
 #include <iostream>
-#include <fstream>
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
 #define RED     "\033[31m"      /* Red */
@@ -40,4 +38,17 @@
 #define BOLDMAGENTAB "\033[1;45m"      /* Bold Magenta BackGround*/
 #define BOLDCYANB    "\033[1;46m"      /* Bold Cyan BackGround*/
 #define BOLDWHITEB   "\033[1;47m"     /* Bold White BackGround*/
+
+class Harl
+{
+private:
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+
+public:
+    void complain(std::string level);
+};
+
 #endif
