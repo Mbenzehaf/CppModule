@@ -6,28 +6,31 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:18:17 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/05 23:08:24 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/14 06:34:03 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
 int main(void)
 {
-    std :: string str;
-    PhoneBook phonebook;
+    std ::string str;
+    PhoneBook phonebook; 
 
     while (1)
     {
-        std::cout<<BOLDGREEN <<"ENTER COMMAND [ADD] or [SEARCH] or [EXIT]:"<<BOLDWHITE;
-        if(std::getline(std::cin,str).eof() || str == "EXIT")
-            return (str=="");
-        else if(str == "ADD")
+        std::cout << BOLDGREEN << "ENTER COMMAND [ADD] or [SEARCH] or [EXIT]:" << BOLDWHITE;
+        if (std::getline(std::cin, str).eof() || str == "EXIT")
+            return (str == "");
+        else if (str == "ADD")
         {
             phonebook.Add_Contact();
-        }else if(str == "SEARCH")
+        }
+        else if (str == "SEARCH")
         {
-             phonebook.Search_Contact();
-        }else
+            phonebook.Search_Contact();
+        }
+        else
             std::cerr << BOLDRED << "[INVALID COMMAND]" << std::endl;
     }
     return (0);

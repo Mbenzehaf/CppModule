@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:38:21 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/04 20:37:11 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/16 02:02:14 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,14 @@
 
 class PhoneBook
 {
+    //attributes
     Contact contact[8];
     int nbrContact;
     public:
+    // Default constructor
     PhoneBook(void);
+    //methods
     void Add_Contact(void);
     void Search_Contact(void);
 };
 #endif
-//WRONG INDEX
-//ENTER ONE COMMAND [ADD] or [SEARCH] or [EXIT]:
-//{WRONG ENTRIES}
-//NO CONTACT TO SHOW [CONTACT FIELDS]Index|First Name| Last Name|  NickName

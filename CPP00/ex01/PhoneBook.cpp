@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:04:27 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/05 23:10:19 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/16 03:09:19 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ PhoneBook::PhoneBook()
 	this->nbrContact = 0;
 }
 
-void	PrintContact(std ::string str, int n = 0)
+void PrintContact(std ::string str, int n = 0)
 {
 	size_t size;
 
 	size = 10;
-	std::cout << std::setw(size)<<std::right;
+	std::cout << std::setw(size) << std::right;
 	if (str.length() > size)
 		std::cout << str.substr(0, size - 1).append(".");
 	else
 		std::cout << str;
-	if(!n)
+	if (!n)
 		std ::cout << "|";
 }
-bool	Check(std::string &str, int (*func)(int))
+bool Check(std::string str, int (*func)(int))
 {
-	int	i;
+	int i;
 
 	i = 0;
 	for (i = 0; str[i]; i++)
@@ -42,46 +42,46 @@ bool	Check(std::string &str, int (*func)(int))
 	}
 	return (i && !str[i]);
 }
-int	ShowMsg(int &i)
+int ShowMsg(int i)
 {
 	switch (i)
 	{
 	case 0:
 	{
 		std ::cout << "FIRST NAME : ";
-		break ;
+		break;
 	}
 	case 1:
 	{
 		std ::cout << "LAST NAME : ";
-		break ;
+		break;
 	}
 	case 2:
 	{
 		std ::cout << "NICKNAME : ";
-		break ;
+		break;
 	}
 	case 3:
 	{
 		std ::cout << "PHONE NUMBER : ";
-		break ;
+		break;
 	}
 	case 4:
 	{
 		std ::cout << "DARKEST SECRET : ";
-		break ;
+		break;
 	}
 	}
 	return (i);
 }
 void PhoneBook::Add_Contact(void)
 {
-	static int	n;
-	int			i;
+	static int n;
+	int i;
 
 	std ::string str;
 	i = 0;
-	std ::cout << std::setw(22)<<std::right <<BOLDBLUE<< "[CONTACT FIELDS]" << RESET<<std::endl;
+	std ::cout << std::setw(22) << std::right << BOLDBLUE << "[CONTACT FIELDS]" << RESET << std::endl;
 	while (ShowMsg(i) < 5)
 	{
 		if (!std::getline(std::cin, str).eof())
@@ -92,16 +92,16 @@ void PhoneBook::Add_Contact(void)
 				{
 				case 0:
 					this->contact[n].setFirstName(str);
-					break ;
+					break;
 				case 1:
 					this->contact[n].setLastName(str);
-					break ;
+					break;
 				case 2:
 					this->contact[n].setNickname(str);
-					break ;
+					break;
 				case 4:
 					this->contact[n].setDarkestSecret(str);
-					break ;
+					break;
 				}
 				i++;
 			}
@@ -127,31 +127,30 @@ void PhoneBook::Search_Contact(void)
 
 	if (this->nbrContact == 0)
 	{
-		std::cerr<< RED << "[NO CONTACT FOUND]" << std::endl;
-		return ;
+		std::cerr << RED << "[NO CONTACT FOUND]" << std::endl;
+		return;
 	}
-	std::cout<<std::setw(20)<<std::right << BOLDBLUEB << "[ C O N T A C T ]" <<RESET<< std::endl;
+	std::cout << std::setw(20) << std::right << BOLDBLUEB << "[ C O N T A C T ]" << RESET << std::endl;
 	std::cout << BOLDBLUEB << "     Index|First Name| Last Name|  NickName" << RESET << std::endl;
 	for (int i = 0; i < this->nbrContact; i++)
 	{
-		Contact &c = contact[i];
 		std ::cout << BOLDCYANB << std::setw(10) << i + 1 << "|";
-		PrintContact(c.getFirstName());
-		PrintContact(c.getLastName());
-		PrintContact(c.getNickname(), 1);
+		PrintContact(contact[i].getFirstName());
+		PrintContact(contact[i].getLastName());
+		PrintContact(contact[i].getNickname(), 1);
 		std ::cout << RESET << std ::endl;
 	}
-	std ::cout<< BOLDGREEN<< "ENTER INDEX : "<<BOLDWHITE;
-	if(std ::getline(std::cin, str).eof())
+	std ::cout << BOLDGREEN << "ENTER INDEX : " << BOLDWHITE;
+	if (std ::getline(std::cin, str).eof())
 		exit(1);
 	if (Check(str, isdigit))
 	{
 		index = std::atoi(str.c_str());
-		if(index > 0 && index <= this->nbrContact)
+		if (index > 0 && index <= this->nbrContact)
 		{
 			this->contact[index - 1].Show_Contact();
-			return ;
+			return;
 		}
 	}
-	std::cerr<< RED << "[INVALID INDEX]" << std::endl;
+	std::cerr << RED << "[INVALID INDEX]" << std::endl;
 }

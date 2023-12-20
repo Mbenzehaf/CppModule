@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/29 15:05:28 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/12/16 02:08:38 by mben-zeh         ###   ########.fr        #
+#    Created: 2023/12/16 06:01:13 by mben-zeh          #+#    #+#              #
+#    Updated: 2023/12/20 05:24:30 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = Fixed
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
 #-fsanitize=address -g3
 
-SRCS = Contact.cpp PhoneBook.cpp main.cpp
+SRCS = Fixed.cpp main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
