@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 05:20:32 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/23 17:01:08 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:05:02 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,64 @@ std::ostream& operator<<(std::ostream &os,const Fixed &ob)
 {
     os << ob.toFloat();
     return (os);
+}
+
+ bool Fixed::operator>(const Fixed &o) const
+ {
+    return (this->_fixedPoint > o._fixedPoint);
+ }
+bool Fixed::operator<(const Fixed &o) const
+{
+     return (this->_fixedPoint < o._fixedPoint);
+}
+bool Fixed::operator>=(const Fixed &o) const
+{
+     return (this->_fixedPoint >= o._fixedPoint);
+}
+bool Fixed::operator<=(const Fixed &o) const
+{
+     return (this->_fixedPoint <= o._fixedPoint);
+}
+bool Fixed::operator==(const Fixed &o) const
+{
+     return (this->_fixedPoint == o._fixedPoint);
+}
+bool Fixed::operator!=(const Fixed &o) const
+{
+     return (this->_fixedPoint != o._fixedPoint);
+}
+
+Fixed Fixed::operator+(const Fixed &o) const
+{
+    return (Fixed(this->toFloat() + o.toFloat()));
+    //return (Fixed::Fixed(this->toFloat() + o.toFloat()));
+}
+
+Fixed Fixed::operator-(const Fixed &o) const
+{
+    return (Fixed(this->toFloat() * o.toFloat()));
+}
+
+Fixed Fixed::operator*(const Fixed &o) const
+{
+    return (Fixed(this->toFloat() * o.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed &o) const
+{
+    if(o.toFloat())
+        return ((Fixed(this->toFloat() / o.toFloat())));
+    std::cerr << "error: division by zero is undefined"<<std::endl;
+    return (Fixed(0));
+}
+
+Fixed& Fixed::operator++(void) 
+{
+    ++this->_fixedPoint;
+    return (*this);
+}
+Fixed& Fixed::operator--(void) 
+{
+    ++this->_fixedPoint;
+    return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 06:00:30 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/23 17:00:50 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:03:04 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,17 @@ public:
     ~Fixed(void);
     float toFloat( void ) const;
     int toInt( void ) const;
-    //void operator<<();
+    bool operator>(const Fixed &) const;
+    bool operator<(const Fixed &) const;
+    bool operator>=(const Fixed &) const;
+    bool operator<=(const Fixed &) const;
+    bool operator==(const Fixed &) const;
+    bool operator!=(const Fixed &) const;
+    Fixed operator+(const Fixed &) const;
+    Fixed operator-(const Fixed &) const;
+    Fixed operator*(const Fixed &) const;
+    Fixed operator/(const Fixed &) const;
+    Fixed &operator++(void);
 };
 std::ostream& operator<<(std::ostream &os,const Fixed &ob);
 #endif

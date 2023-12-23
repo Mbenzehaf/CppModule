@@ -6,34 +6,42 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:07:17 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/20 04:42:14 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:05:43 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.hpp"
 
-class Class1{
-    int var1;
-    int var2;
-    int var3;
-    public :
-    Class1(int va1) : var1(va1){}
-    int getvar1(){return var1;}
-    int getvar2(){return var2;}
-    int getvar3(){return var3;}
-};
-#include <iostream>
-#include <bitset>
+C1::C1(void):var(5)
+{
+    std::cout << "Default constructor  called" << std::endl;
+}
 
-int main() {
-    // Assume you have an integer value
-       float floatValue = 1.5; // Replace this with your float value
+C1::C1(int a):var(a)
+{
+    std::cout << "Constructor with a member initializer list" << std::endl;
+}
+C1::C1(const C1 & C):var(C.var)
+{
+    std::cout << "Copy constructor  called" << std::endl;
+}
+C1& C1::operator=(const C1& C)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->var = C.var;
+    return (*this);
+}
+C1::~C1(void)
+{
+    std::cout << "Destructor called" << std::endl;
+}
+// C1& C1::operator+(const C1& o1)
+// {
+//     var = o1.var + var;
+//     return (*this);
+// }
 
-    // Interpret the bits of the float value as an integer
-    std::bitset<sizeof(float) * 8> bits(*reinterpret_cast<unsigned long*>(&floatValue));
-
-    // Display the binary representation
-    std::cout << "Binary representation of " << floatValue << ": " << bits << std::endl;
-
-    return 0;
+int C1::getvar(void)
+{
+    return (this->var);
 }

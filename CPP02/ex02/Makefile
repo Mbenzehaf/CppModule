@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/29 15:07:22 by mben-zeh          #+#    #+#              #
-#    Updated: 2023/12/23 17:46:32 by mben-zeh         ###   ########.fr        #
+#    Created: 2023/12/16 06:01:13 by mben-zeh          #+#    #+#              #
+#    Updated: 2023/12/20 05:24:30 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = test
+NAME = Fixed
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 
-#-fsanitize=address
+#-fsanitize=address -g3
 
-SRCS = test.cpp main.cpp
+SRCS = Fixed.cpp main.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
