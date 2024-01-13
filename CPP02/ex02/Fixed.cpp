@@ -27,15 +27,16 @@ Fixed::Fixed(const float value)
     std::cout << "Float constructor called" << std::endl;
     this->_fixedPoint = (int)roundf(value *(1 << _fractionalBits));
 }
-Fixed::Fixed(const Fixed &Copy)
+Fixed::Fixed(const Fixed &obj)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = Copy;
+    *this = obj;
 }
-Fixed& Fixed::operator=(const Fixed& Copy)
+Fixed& Fixed::operator=(const Fixed& obj)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->_fixedPoint = Copy._fixedPoint;
+    if(this != &obj)
+        this->_fixedPoint = obj._fixedPoint;
     return (*this);
 }
 Fixed::~Fixed(void)
