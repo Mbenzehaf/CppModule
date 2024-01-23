@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 05:20:32 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/23 19:05:02 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/14 02:37:18 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,34 @@
 
 Fixed::Fixed(void):_fixedPoint(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 Fixed::Fixed(const int value)
 {
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
     this->_fixedPoint = value << _fractionalBits;
 }
 
 Fixed::Fixed(const float value)
 {
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
     this->_fixedPoint = (int)roundf(value *(1 << _fractionalBits));
 }
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed &Copy)
 {
-    std::cout << "Copy constructor called" << std::endl;
-    *this = obj;
+    //std::cout << "Copy constructor called" << std::endl;
+    *this = Copy;
 }
-Fixed& Fixed::operator=(const Fixed& obj)
+Fixed& Fixed::operator=(const Fixed& Copy)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
-    if(this != &obj)
-        this->_fixedPoint = obj._fixedPoint;
+    //std::cout << "Copy assignment operator called" << std::endl;
+    if(&Copy != this)
+        this->_fixedPoint = Copy._fixedPoint;
     return (*this);
 }
 Fixed::~Fixed(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 float Fixed::toFloat( void ) const
@@ -88,12 +88,11 @@ bool Fixed::operator!=(const Fixed &o) const
 Fixed Fixed::operator+(const Fixed &o) const
 {
     return (Fixed(this->toFloat() + o.toFloat()));
-    //return (Fixed::Fixed(this->toFloat() + o.toFloat()));
 }
 
 Fixed Fixed::operator-(const Fixed &o) const
 {
-    return (Fixed(this->toFloat() * o.toFloat()));
+    return (Fixed(this->toFloat() - o.toFloat()));
 }
 
 Fixed Fixed::operator*(const Fixed &o) const
@@ -103,19 +102,48 @@ Fixed Fixed::operator*(const Fixed &o) const
 
 Fixed Fixed::operator/(const Fixed &o) const
 {
-    if(o.toFloat())
-        return ((Fixed(this->toFloat() / o.toFloat())));
-    std::cerr << "error: division by zero is undefined"<<std::endl;
-    return (Fixed(0));
+    return ((Fixed(this->toFloat() / o.toFloat())));
 }
 
-Fixed& Fixed::operator++(void) 
+Fixed &Fixed::operator++(void) 
 {
     ++this->_fixedPoint;
     return (*this);
 }
+
+Fixed Fixed::operator++(int) 
+{
+    Fixed temp(this->toFloat());
+    this->_fixedPoint++;
+    return (temp);
+}
+
 Fixed& Fixed::operator--(void) 
 {
-    ++this->_fixedPoint;
+    --this->_fixedPoint;
     return (*this);
+}
+
+Fixed Fixed::operator--(int) 
+{
+   Fixed temp(this->toFloat());
+    this->_fixedPoint--;
+    return (temp);
+}
+
+Fixed& Fixed::min(Fixed &a, Fixed &b) 
+{
+    return (a < b ? a : b);
+}
+Fixed& Fixed::max(Fixed &a,Fixed &b) 
+{
+    return (a < b ? b : a);
+}
+const Fixed& Fixed::min(const Fixed &a,const Fixed &b)
+{
+    return (a < b ? a : b);
+}
+const Fixed& Fixed::max(const Fixed &a,const Fixed &b) 
+{
+    return (a < b ? b : a);
 }

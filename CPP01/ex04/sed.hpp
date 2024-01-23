@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 06:38:56 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/12 06:25:00 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/06 04:01:19 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@
 #define BOLDCYANB    "\033[1;46m"      /* Bold Cyan BackGround*/
 #define BOLDWHITEB   "\033[1;47m"     /* Bold White BackGround*/
 
-void sed(std::string FileName, std::string &S1, std::string &S2);
+void sed(std::string FileName, std::string S1, std::string S2);
 #endif

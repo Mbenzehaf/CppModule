@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 05:20:32 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/20 06:42:22 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/12 21:42:08 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ Fixed::Fixed(void):_fixedPoint(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed &Copy)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = obj;
+    *this = Copy;
 }
-Fixed& Fixed::operator=(const Fixed& obj)
+Fixed& Fixed::operator=(const Fixed& Copy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    if(this != &obj)
-        this->_fixedPoint = obj.getRawBits();
+    if(this != &Copy)
+        this->_fixedPoint = Copy.getRawBits();
     return (*this);
 }
 

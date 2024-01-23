@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 02:39:35 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/11 04:55:12 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:41:18 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void HumanA::attack(void)
 }
 
 HumanA::HumanA(const std::string &name ,Weapon& weapon):name(name),weapon(weapon)
+{
+    
+}
+HumanA::~HumanA(void)
 {
     
 }

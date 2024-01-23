@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 20:39:18 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/11 02:11:53 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/01 18:48:02 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Zombie* zombieHorde(int N, std::string name)
 {
     Zombie *zombie;
+
     zombie = NULL;
     if(N <= 0)
         return (zombie);

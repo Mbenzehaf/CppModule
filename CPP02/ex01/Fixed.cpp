@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 05:20:32 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/23 17:01:08 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/13 21:34:32 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ Fixed::Fixed(const float value)
     std::cout << "Float constructor called" << std::endl;
     this->_fixedPoint = (int)roundf(value *(1 << _fractionalBits));
 }
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed &Copy)
 {
     std::cout << "Copy constructor called" << std::endl;
-    *this = obj;
+    *this = Copy;
 }
-Fixed& Fixed::operator=(const Fixed& obj)
+Fixed& Fixed::operator=(const Fixed& Copy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    if(this != &obj)
-        this->_fixedPoint = obj._fixedPoint;
+    if(&Copy != this)
+        this->_fixedPoint = Copy._fixedPoint;
     return (*this);
 }
 Fixed::~Fixed(void)
@@ -46,12 +46,12 @@ Fixed::~Fixed(void)
 
 float Fixed::toFloat( void ) const
 {
-    return (this->_fixedPoint / (float)( 1 << _fractionalBits));
+    return (this->_fixedPoint / (float)( 1 << 8));
 }
 
 int Fixed::toInt( void ) const
 {
-    return ((int)(this->_fixedPoint >> _fractionalBits));
+    return ((int)(this->_fixedPoint >> 8));
 }
 
 std::ostream& operator<<(std::ostream &os,const Fixed &ob)

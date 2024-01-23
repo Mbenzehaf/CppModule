@@ -6,13 +6,14 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 22:44:48 by mben-zeh          #+#    #+#             */
-/*   Updated: 2023/12/12 23:43:40 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/06 04:03:25 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __HARL_HPP__
 #define __HARL_HPP__
 #include <iostream>
+#include "iomanip"
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
 #define RED     "\033[31m"      /* Red */
