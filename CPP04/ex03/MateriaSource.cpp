@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:46:06 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/23 06:31:48 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/24 04:52:48 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ MateriaSource::MateriaSource(void)
     //std::cout << "MateriaSource Default constructor called" << std::endl;
     for (size_t i = 0; i < 4; i++)
     {
-        bag[i] = NULL;
+        _inventory[i] = NULL;
     }
 }
 MateriaSource::MateriaSource(const MateriaSource& other)
@@ -25,10 +25,10 @@ MateriaSource::MateriaSource(const MateriaSource& other)
     std::cout << "MateriaSource Copy constructor called" << std::endl;
     for (size_t i = 0; i < 4; i++)
     {
-        if(other.bag[i])
-            bag[i] = other.bag[i];
+        if(other._inventory[i])
+            _inventory[i] = other._inventory[i];
         else
-            bag[i] = NULL;
+            _inventory[i] = NULL;
     }
 }
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
@@ -36,12 +36,12 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
     //std::cout << "MateriaSource Copy assignment operator called" << std::endl;
      for (size_t i = 0; i < 4; i++)
     {
-        if(bag[i])
-            delete bag[i];
-        if(other.bag[i])
-            bag[i] = other.bag[i];
+        if(_inventory[i])
+            delete _inventory[i];
+        if(other._inventory[i])
+            _inventory[i] = other._inventory[i];
         else
-            bag[i] = NULL;
+            _inventory[i] = NULL;
     }
     return (*this);
 }
@@ -49,9 +49,9 @@ void MateriaSource::learnMateria(AMateria* m)
 {
     for (size_t i = 0;m && i < 4; i++)
     {
-        if(bag[i] == NULL)
+        if(_inventory[i] == NULL)
         {
-            bag[i] = m->clone();
+            _inventory[i] = m->clone();
             break;
         }
     }
@@ -62,9 +62,9 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 {
     for (size_t i = 0; i < 4; i++)
     {
-        if(bag[i] && bag[i]->getType() == type)
+        if(_inventory[i] && _inventory[i]->getType() == type)
         {
-            return (bag[i]->clone());
+            return (_inventory[i]->clone());
         }
     }
     return (NULL);
@@ -73,8 +73,7 @@ MateriaSource::~MateriaSource()
 {
     for (size_t i = 0; i < 4; i++)
     {
-        if(bag[i])
-            delete bag[i];
+        if(_inventory[i])
+            delete _inventory[i];
     }
-    
 }

@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 09:33:18 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/23 08:46:44 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:18:42 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,14 @@ Character& Character::operator=(const Character &other)
     if(&other != this)
     {
         this->_name = other._name;
+        for (size_t i = 0; i < 4; i++)
+        {
+        if(_saveinv[i])
+           { 
+            delete _saveinv[i];
+            _saveinv[i]=NULL;
+           }
+        }
         for(size_t i=0;i<4;i++)
         {
         if(_inventory[i])
@@ -75,8 +83,9 @@ void Character::equip(AMateria* m)
     for (size_t i = 0; i < 4; i++)
     {
         if(_saveinv[i])
-           { delete _saveinv[i];
-           _saveinv[i]=NULL;
+           { 
+            delete _saveinv[i];
+            _saveinv[i]=NULL;
            }
     }
     for (size_t i = 0;m && i < 4; i++)
@@ -86,13 +95,16 @@ void Character::equip(AMateria* m)
         else if(idx == -1 && !_inventory[i])
             idx = i;
     }
-    if(m &&idx >= 0 &&  _inventory[idx]== NULL)
+    if(m && idx >= 0 && _inventory[idx]== NULL)
         {
             _inventory[idx] = m;
             return ;
         }
     if(m)
-        delete m;
+        {
+            std::cout<<"INVENTORY FULL!!!!!"<<std::endl;
+            delete m;
+        }
 }
 void Character::unequip(int idx)
 {
@@ -129,6 +141,5 @@ Character::~Character(void)
        {
         delete _inventory[i];
        }
-    }
-    
+    }   
 }
