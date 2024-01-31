@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:01:38 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/30 15:15:55 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/31 15:31:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ const char *AForm::GradeTooLowException::what() const throw()
 {
     return ("Grade too low");
 }
-const char *AForm::IsNotSignedException::what() const throw()
+const char *AForm::NotSignedException::what() const throw()
 {
-    return ("Form is not signed");
+    return ("Form not signed");
 }
 void AForm::beSigned(const Bureaucrat &obj)
 {

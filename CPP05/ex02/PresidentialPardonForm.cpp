@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:41:15 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/30 15:48:28 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:31:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
 
 PresidentialPardonForm::PresidentialPardonForm(void):AForm("Presidential Pardon",25,5)
 {
@@ -47,12 +46,13 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
  {
       if(!this->getSigned())
     {
-        throw IsNotSignedException();
+        throw NotSignedException();
     }else if (this->getGradeToExecute() < executor.getGrade())
     {
         throw GradeTooLowException();
     }
     std::cout << _target <<" has been pardoned by Zaphod Beeblebrox."<<std::endl;
+
  }
 std::string PresidentialPardonForm::getTarget(void)
 {

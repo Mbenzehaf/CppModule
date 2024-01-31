@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 05:40:41 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/30 15:39:47 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:28:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <stdexcept>
+#include <ctime>
 
 #include "AForm.hpp"
 class AForm;
