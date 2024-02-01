@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:41:20 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/31 17:51:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/01 21:57:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int RobotomyRequestForm::count = 0; 
 
-RobotomyRequestForm::RobotomyRequestForm(void):AForm("Robotomy Request",72,45)
+RobotomyRequestForm::RobotomyRequestForm(void):AForm("robotomy request",72,45)
 {
     this->_target = "default";
     //std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
@@ -25,7 +25,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):AForm
     //std::cout << "RobotomyRequestForm Copy constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target):AForm("Robotomy Request",72,45)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target):AForm("robotomy request",72,45)
 {
     this->_target = target;
     //std::cout << "RobotomyRequestForm parameterized constructor called" << std::endl;

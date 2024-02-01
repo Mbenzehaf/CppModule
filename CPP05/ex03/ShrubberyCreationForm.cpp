@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:57:59 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/31 16:36:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/01 21:44:33 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("shrubbery creation", 145, 137)
 {
     this->_target = "default";
     // std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
@@ -23,7 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
     // std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("shrubbery creation", 145, 137)
 {
     this->_target = target;
     // std::cout << "ShrubberyCreationForm parameterized constructor called" << std::endl;
