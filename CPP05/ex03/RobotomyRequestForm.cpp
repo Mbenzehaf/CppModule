@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:41:20 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/01 21:57:34 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 19:08:27 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-int RobotomyRequestForm::count = 0; 
 
 RobotomyRequestForm::RobotomyRequestForm(void):AForm("robotomy request",72,45)
 {
@@ -53,30 +52,12 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     {
         throw GradeTooLowException();
     }
-    std::cout << "* drilling noises *";
-    
-    if (count % 2 == 0)
+    std::cout << "* drilling noises * ";
+    srand(time(0));
+    if ((rand() % 2) == 0)
         std::cout << this->_target << " has been robotomized successfully" << std::endl;
     else
         std::cerr << this->_target << " robotomy failed" << std::endl;
-    count++;
-    /*
-      int  i = rand();
-        if (i % 2 == 0)
-            std::cout << "ZZZZZZZNNN!" << target << " has been robotomized!" << std::endl;
-        else
-            std::cout << "Oops!Robotomy failed! " << target << " is still alive." << std::endl;
-           if ( i % 2 == 0 )
-            std::cout << "BZZZZZT! " << _target << " has been robotomized!" << std::endl;
-        else
-            std::cout << "Robotomy failed! " << _target << " is still alive." << std::endl;
-
-        std::cout << "*Clank* *Clank* *Clank*" << std::endl;
-    std::time_t  currentTime = std::time(0);
-   
-
-        std::cout << executor.getName() << " " << ((++RobotomyRequestList % 2) ? "has been robotomized successfully" : " robotomy failed") << std::endl;
-    std::cout << _target <<" has been robotomized successfully 50% of the time. "<<std::endl;*/
 }
 std::string RobotomyRequestForm::getTarget(void)
 {

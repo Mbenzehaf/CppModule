@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 20:31:36 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/01 23:10:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 19:07:07 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 Intern::Intern(void)
 {
-    std::cout << "Intern Default constructor called" << std::endl;
+    //std::cout << "Intern Default constructor called" << std::endl;
 }
 Intern::Intern(const Intern &other)
 {
     (void)other;
-    std::cout << "Intern Copy constructor called" << std::endl;
+    //std::cout << "Intern Copy constructor called" << std::endl;
 }
 Intern& Intern::operator=(const Intern &other)
 {
     (void)other;
-    std::cout << "Intern Copy assignment operator called" << std::endl;
+    //std::cout << "Intern Copy assignment operator called" << std::endl;
     return (*this);
 }
 Intern::~Intern()
 {
-    std::cout << "Intern destructor called" << std::endl;
+    //std::cout << "Intern destructor called" << std::endl;
 }
 
 AForm* Intern::makeForm(const std::string & name,const std::string & target)

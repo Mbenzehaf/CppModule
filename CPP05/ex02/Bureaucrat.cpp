@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 05:40:30 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/30 15:44:15 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:25:22 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,7 @@ void Bureaucrat::setGrade(const int& grade)
     }
     this->_grade = grade;
 }
-// Bureaucrat::GradeTooHighException::GradeTooHighException()
-// {
-    
-// }
-// Bureaucrat::GradeTooLowException::GradeTooLowException()
-// {
-    
-// }
+
  void Bureaucrat::incrementGrade(void)
 {
     setGrade(_grade - 1);

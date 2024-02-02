@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:41:23 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/31 17:31:19 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 16:02:57 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ class RobotomyRequestForm: public AForm
 {
 private:
     std::string _target;
-    static int count; 
 public:
     RobotomyRequestForm(void);
     RobotomyRequestForm(const RobotomyRequestForm &);

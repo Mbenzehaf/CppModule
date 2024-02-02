@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:57:59 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/31 16:36:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 18:19:56 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("shrubbery creation", 145, 137)
 {
     this->_target = "default";
     // std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
@@ -23,7 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
     // std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("shrubbery creation", 145, 137)
 {
     this->_target = target;
     // std::cout << "ShrubberyCreationForm parameterized constructor called" << std::endl;
@@ -57,10 +57,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     {
         throw GradeTooLowException();
     }
-
-    //std::ofstream os(target , std::ofstream::app);
-    std::ofstream os;
-    os.open(std::string(_target).append("_shrubbery").c_str(),std::ios::app);
+    
+    std::ofstream os(_target + "_shrubbery",std::ios::out);
+    
     if (!os.is_open())
 	{
         throw std::runtime_error("Unable to open file for shrubbery creation.");

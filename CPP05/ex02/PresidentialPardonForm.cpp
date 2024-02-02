@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:41:15 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/31 17:31:31 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 18:18:08 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void):AForm("Presidential Pardon",25,5)
+PresidentialPardonForm::PresidentialPardonForm(void):AForm("presidential pardon",25,5)
 {
     this->_target = "default";
     //std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
@@ -23,7 +23,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
     //std::cout << "PresidentialPardonForm Copy constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target):AForm("Presidential Pardon",25,5)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target):AForm("presidential pardon",25,5)
 {
     this->_target = target;
     //std::cout << "PresidentialPardonForm parameterized constructor called" << std::endl;

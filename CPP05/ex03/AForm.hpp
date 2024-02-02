@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:01:22 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/30 15:16:03 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:05:37 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class AForm{
     AForm(void);
     AForm(const std::string &,const int & ,const int &);
     AForm(const AForm&);
-     ~AForm();
+    virtual ~AForm();
     
     AForm& operator=(const AForm&);
 

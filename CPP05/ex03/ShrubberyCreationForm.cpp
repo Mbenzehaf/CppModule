@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:57:59 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/01 21:44:33 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/02 17:10:19 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     {
         throw GradeTooLowException();
     }
-
-    //std::ofstream os(target , std::ofstream::app);
-    std::ofstream os;
-    os.open(std::string(_target).append("_shrubbery").c_str(),std::ios::app);
+    
+    std::ofstream os(_target + "_shrubbery",std::ios::out);
     if (!os.is_open())
 	{
         throw std::runtime_error("Unable to open file for shrubbery creation.");
