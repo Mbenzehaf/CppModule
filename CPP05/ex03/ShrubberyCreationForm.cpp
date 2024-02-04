@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:57:59 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/02 17:10:19 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/04 02:16:03 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         throw GradeTooLowException();
     }
     
-    std::ofstream os(_target + "_shrubbery",std::ios::out);
+    std::ofstream os(std::string(_target + "_shrubbery").c_str(),std::ios::out);
     if (!os.is_open())
 	{
         throw std::runtime_error("Unable to open file for shrubbery creation.");

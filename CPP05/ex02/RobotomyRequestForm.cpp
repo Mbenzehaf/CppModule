@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 09:41:20 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/02 18:17:35 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/04 02:14:03 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
     }
     std::cout << "* drilling noises * ";
 
-    srand(time(0));
+   srand(time(0));
+    
     if ((rand() % 2) == 0)
         std::cout << this->_target << " has been robotomized successfully" << std::endl;
     else

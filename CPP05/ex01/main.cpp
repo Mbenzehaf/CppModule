@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 05:40:11 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/01/29 16:56:09 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/04 01:53:17 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(void)
 		Bureaucrat bureaucrat("med", 150);
 		std::cout << bureaucrat << std::endl;
 		std::cout << "----------------------------" << std::endl;
-		Form form("form",140,150);
+		Form form("wati9a",140,150);
 		std::cout << form << std::endl;
 		std::cout << "----------------------------" << std::endl;
 		bureaucrat.signForm(form);
