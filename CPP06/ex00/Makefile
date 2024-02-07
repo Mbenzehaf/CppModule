@@ -6,7 +6,7 @@
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 03:51:13 by mben-zeh          #+#    #+#              #
-#    Updated: 2024/02/06 04:43:13 by mben-zeh         ###   ########.fr        #
+#    Updated: 2024/02/07 09:04:19 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp
-#convert.cpp
+SRCS = main.cpp convert.cpp
 
 OBJS = ${SRCS:.cpp=.o}
 
