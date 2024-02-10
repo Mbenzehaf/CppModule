@@ -81,7 +81,7 @@ bool isAllDigit(const std::string &str)
     }
     while(str[i])
     {
-        if(str[i]< '0' || str[i]> '9' || ( str[i]== '.' && p++))
+       if((str[i]!= '.' && !isdigit(str[i]))||(str[i]== '.' && p++))
         {
             return (false);
         }
