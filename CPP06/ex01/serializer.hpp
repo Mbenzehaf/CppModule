@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.hpp                                        :+:      :+:    :+:   */
+/*   serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 03:55:07 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/10 10:57:40 by mben-zeh         ###   ########.fr       */
+/*   Created: 2024/02/08 11:30:04 by mben-zeh          #+#    #+#             */
+/*   Updated: 2024/02/10 12:46:14 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#include <string>
-#include <sstream>
-#include <cmath>
-#include <stdexcept>
-#include <limits>
-class ScalarConverter
-{
-    public :
-    //Orthodox Canonical Form
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter &);
-    ScalarConverter& operator=(const ScalarConverter &);
-    ~ScalarConverter();
+#include <stdint.h>
 
-    static void convert(const std::string &);
+typedef struct  s_data
+{
+    int a;
+}Data;
+
+class Serializer
+{
+public:
+    Serializer(void);
+    Serializer(const Serializer &);
+    Serializer& operator=(const Serializer &);
+    ~Serializer(void);
+
+    
+    uintptr_t serialize(Data* ptr);
+    Data* deserialize(uintptr_t raw);
 };

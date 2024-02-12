@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 03:54:52 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/09 15:48:05 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/12 10:14:22 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,22 @@ void ConsertToInt (const double &number)
 void ConsertToFloat (const double &number)
 {
     std::cout << "float: ";
-    ((std::isnan(number) && std::cout << "nan") || (std::isinf(number) && std::cout << "inf")
-    || std::cout << static_cast<int>(number));
+    ((std::isnan(number) && std::cout << "nan") || (std::isinf(number) && std::cout << (number > 0 ? "+":"-" ) <<"inf")
+    || std::cout << static_cast<float>(number));
     std::cout << "f" <<  std::endl;
 }
 void ConsertToDouble (const double &number)
 {
     std::cout << "double: ";
     ((std::isnan(number) && std::cout << "nan")
-    ||(std::isinf(number) && std::cout << "inf")
-    || std::cout << static_cast<int>(number));
+    ||(std::isinf(number) && std::cout << (number > 0 ? "+":"-" ) << "inf")
+    || std::cout << static_cast<double>(number));
     std::cout << std::endl;
 }
 
 bool isAllDigit(const std::string &str)
 {   
-    int i;
-    int p;
+    int i,p;
 
     i = 0;
     p = 0;
@@ -81,7 +80,7 @@ bool isAllDigit(const std::string &str)
     }
     while(str[i])
     {
-       if((str[i]!= '.' && !isdigit(str[i]))||(str[i]== '.' && p++))
+        if((!isdigit(str[i]) && str[i] != '.') || (str[i]== '.' && (p++ || str[i + 1] == '\0')))
         {
             return (false);
         }
@@ -93,7 +92,7 @@ bool isAllDigit(const std::string &str)
 double checkStr(const std::string &str)
 {
     double number;
-    
+
     std::stringstream ss(str);
     ss >> number;
     if(str.empty()||(str != "nan" && str != "nanf" && str != "-inff" && str != "+inff" && str != "-inf" && str != "+inf" &&  !isAllDigit(str)))
@@ -111,9 +110,8 @@ double checkStr(const std::string &str)
 void ScalarConverter::convert(const std::string & str)
 {
     double number;
-
     
-    number = checkStr(str);
+    number = checkStr(str); 
     ConsertToChar(number);
     ConsertToInt(number);
     ConsertToFloat(number);

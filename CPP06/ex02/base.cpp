@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 11:34:17 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/10 15:55:15 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/12 09:22:47 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 Base::~Base()
 {
-    
 }
 
-Base * generate(void)
+Base *generate(void)
 {
-    
+
     int random_number;
     srand(time(0));
     random_number = rand() % 3;
-    if(random_number == 0)
+    if (random_number == 0)
         return (new A());
     else if (random_number == 1)
         return (new B());
@@ -31,47 +30,57 @@ Base * generate(void)
         return (new C());
 }
 
-void identify(Base* p)
+void identify(Base *p)
 {
-    if(A *a = dynamic_cast<A *>(p))
+    if (A *a = dynamic_cast<A *>(p))
     {
         (void)a;
-        std::cout << "type of the object pointed is : A" << std::endl;
-    }else if (B *b = dynamic_cast<B *>(p))
+        std::cout << "Typ e is : A" << std::endl;
+    }
+    else if (B *b = dynamic_cast<B *>(p))
     {
         (void)b;
-        std::cout << "type of the object pointed is : B" << std::endl;   
-    }else if (C *c = dynamic_cast<C *>(p))
+        std::cout << "Type is : B" << std::endl;
+    }
+    else if (C *c = dynamic_cast<C *>(p))
     {
         (void)c;
-        std::cout << "type of the object pointed is : C" << std::endl;
-    }else
+        std::cout << "Type is : C" << std::endl;
+    }
+    else
     {
-        std::cout << "type of the object pointed is : Uknown" << std::endl;
+        std::cout << "Type is : Uknown" << std::endl;
     }
 }
 
-void identify(Base& p)
+void identify(Base &p)
 {
-     (void) p;
-
-    A &a = (A&)(p);
-    (void)a;
-    std::cout << "type of the object pointed is : A" << std::endl;
-    // if(A &a = dynamic_cast<A &>(P))
-    // {
-    //     (void)a;
-    //     std::cout << "type of the object pointed is : A" << std::endl;
-    // }else if (B &b = dynamic_cast<B &>(p))
-    // {
-    //     (void)b;
-    //     std::cout << "type of the object pointed is : B" << std::endl;   
-    // }else if (C &c = dynamic_cast<C &>(p))
-    // {
-    //     (void)c;
-    //     std::cout << "type of the object pointed is : C" << std::endl;
-    // }else
-    // {
-    //     std::cout << "type of the object pointed is : Uknown" << std::endl;
-    // }
+    try
+    {
+        A &a = dynamic_cast<A &>(p);
+        (void)a;
+        std::cout << "Type is : A" << std::endl;
+    }
+    catch (...)
+    {
+        try
+        {
+            B &b = dynamic_cast<B &>(p);
+            (void)b;
+            std::cout << "Type is : B" << std::endl;
+        }
+        catch (...)
+        {
+            try
+            {
+                C &c = dynamic_cast<C &>(p);
+                (void)c;
+                std::cout << "Type is : C" << std::endl;
+            }
+            catch (...)
+            {
+                std::cout << "Type is : Uknown" << std::endl;
+            }
+        }
+    }
 }

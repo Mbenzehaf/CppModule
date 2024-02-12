@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 03:55:07 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/10 10:57:40 by mben-zeh         ###   ########.fr       */
+/*   Created: 2024/02/08 11:30:15 by mben-zeh          #+#    #+#             */
+/*   Updated: 2024/02/10 12:44:43 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <cmath>
-#include <stdexcept>
-#include <limits>
-class ScalarConverter
-{
-    public :
-    //Orthodox Canonical Form
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter &);
-    ScalarConverter& operator=(const ScalarConverter &);
-    ~ScalarConverter();
+#include "serializer.hpp"
 
-    static void convert(const std::string &);
-};
+int main(void)
+{
+    Serializer serializer;
+    Data * ptr;
+    
+    ptr = new Data();
+    std::cout << "ptr : " << ptr <<std::endl ;
+    std::cout << "serialize : " << serializer.serialize(ptr) <<std::endl ;
+    std::cout << "deserialize : " << serializer.deserialize(serializer.serialize(ptr) ) <<std::endl ;
+    
+    delete ptr;
+}
