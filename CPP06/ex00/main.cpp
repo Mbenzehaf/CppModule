@@ -6,31 +6,18 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 04:26:53 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/10 17:27:23 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/13 06:54:18 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "convert.hpp"
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <cmath>
-#include <limits>
-
-//  
 int main(int ac,char **av)
 {
-    (void)av;
-    //double number;
     if(ac != 2)
     {
         std::cerr << "Invalid number of arguments" << std::endl;
         return (1);
     }
-    //std::string str(av[1]);
-    // std::stringstream ss((const std::string)std::string(av[1]));
-    // ss >> number;
-    // std::cout << "number :" << number << std::endl;
     try
     {
         ScalarConverter::convert(std::string(av[1]));

@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 11:34:17 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/12 09:22:47 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/13 01:02:50 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 Base::~Base()
 {
+    
 }
 
 Base *generate(void)
 {
-
     int random_number;
     srand(time(0));
     random_number = rand() % 3;
@@ -35,7 +35,7 @@ void identify(Base *p)
     if (A *a = dynamic_cast<A *>(p))
     {
         (void)a;
-        std::cout << "Typ e is : A" << std::endl;
+        std::cout << "Type is : A" << std::endl;
     }
     else if (B *b = dynamic_cast<B *>(p))
     {

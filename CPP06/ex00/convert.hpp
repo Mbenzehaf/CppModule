@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 03:55:07 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/10 10:57:40 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/13 06:03:19 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <cmath>
 #include <stdexcept>
 #include <limits>
+#include <iomanip>
+#include <cstdlib>
 class ScalarConverter
 {
     public :

@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 03:54:52 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/12 10:14:22 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/13 06:59:35 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ScalarConverter::~ScalarConverter()
 {
     //std::cout << "ScalarConverter destructor called" << std::endl;
 }
-void ConsertToChar(const double &number)
+void ConsertToChar(const long &number)
 {
     std::cout << "char: ";
     (((std::isnan(number) || std::isinf(number))&& std::cout << "impossible")
@@ -40,7 +40,7 @@ void ConsertToChar(const double &number)
     std::cout << std::endl;
     
 }
-void ConsertToInt (const double &number)
+void ConsertToInt (const long &number)
 {
     std::cout << "int: ";
     (((std::isnan(number) || isinf(number)) && std::cout << "impossible")
@@ -52,7 +52,7 @@ void ConsertToFloat (const double &number)
 {
     std::cout << "float: ";
     ((std::isnan(number) && std::cout << "nan") || (std::isinf(number) && std::cout << (number > 0 ? "+":"-" ) <<"inf")
-    || std::cout << static_cast<float>(number));
+    || std::cout <<std::fixed << std::setprecision(1)<< static_cast<float>(number));
     std::cout << "f" <<  std::endl;
 }
 void ConsertToDouble (const double &number)
@@ -60,7 +60,7 @@ void ConsertToDouble (const double &number)
     std::cout << "double: ";
     ((std::isnan(number) && std::cout << "nan")
     ||(std::isinf(number) && std::cout << (number > 0 ? "+":"-" ) << "inf")
-    || std::cout << static_cast<double>(number));
+    || std::cout <<std::fixed << std::setprecision((static_cast<int>(number) == static_cast<double>(number))? 1 : 4 ) << static_cast<double>(number));
     std::cout << std::endl;
 }
 
@@ -80,7 +80,8 @@ bool isAllDigit(const std::string &str)
     }
     while(str[i])
     {
-        if((!isdigit(str[i]) && str[i] != '.') || (str[i]== '.' && (p++ || str[i + 1] == '\0')))
+        
+        if((!isdigit(str[i]) && str[i] != '.' && str[i] != 'f') || (str[i]== '.' && (p++ || str[i + 1] == '\0')) || (str[i] == 'f'  &&( !p|| str[i + 1] !='\0')))
         {
             return (false);
         }
@@ -92,9 +93,8 @@ bool isAllDigit(const std::string &str)
 double checkStr(const std::string &str)
 {
     double number;
-
-    std::stringstream ss(str);
-    ss >> number;
+    
+    number = std::atof(str.c_str());
     if(str.empty()||(str != "nan" && str != "nanf" && str != "-inff" && str != "+inff" && str != "-inf" && str != "+inf" &&  !isAllDigit(str)))
     {
         throw std::runtime_error("INVALID INPUT"); 
