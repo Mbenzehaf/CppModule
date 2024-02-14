@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 11:30:04 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/10 12:46:14 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:12:09 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ typedef struct  s_data
 
 class Serializer
 {
+private:
+    Serializer(void); 
 public:
-    Serializer(void);
     Serializer(const Serializer &);
     Serializer& operator=(const Serializer &);
     ~Serializer(void);
-
     
-    uintptr_t serialize(Data* ptr);
-    Data* deserialize(uintptr_t raw);
+   static uintptr_t serialize(Data* ptr);
+   static Data* deserialize(uintptr_t raw);
 };

@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 03:54:52 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/13 06:59:35 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/14 17:04:44 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ScalarConverter::~ScalarConverter()
 {
     //std::cout << "ScalarConverter destructor called" << std::endl;
 }
-void ConsertToChar(const long &number)
+void ConvertToChar(const double &number)
 {
     std::cout << "char: ";
     (((std::isnan(number) || std::isinf(number))&& std::cout << "impossible")
@@ -40,7 +40,7 @@ void ConsertToChar(const long &number)
     std::cout << std::endl;
     
 }
-void ConsertToInt (const long &number)
+void ConvertToInt (const double &number)
 {
     std::cout << "int: ";
     (((std::isnan(number) || isinf(number)) && std::cout << "impossible")
@@ -48,14 +48,14 @@ void ConsertToInt (const long &number)
     std::cout << std::endl;
 }
 
-void ConsertToFloat (const double &number)
+void ConvertToFloat (const double &number)
 {
     std::cout << "float: ";
     ((std::isnan(number) && std::cout << "nan") || (std::isinf(number) && std::cout << (number > 0 ? "+":"-" ) <<"inf")
     || std::cout <<std::fixed << std::setprecision(1)<< static_cast<float>(number));
     std::cout << "f" <<  std::endl;
 }
-void ConsertToDouble (const double &number)
+void ConvertToDouble (const double &number)
 {
     std::cout << "double: ";
     ((std::isnan(number) && std::cout << "nan")
@@ -112,8 +112,8 @@ void ScalarConverter::convert(const std::string & str)
     double number;
     
     number = checkStr(str); 
-    ConsertToChar(number);
-    ConsertToInt(number);
-    ConsertToFloat(number);
-    ConsertToDouble(number);
+    ConvertToChar(number);
+    ConvertToInt(number);
+    ConvertToFloat(number);
+    ConvertToDouble(number);
 }
