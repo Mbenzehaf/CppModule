@@ -6,7 +6,7 @@
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 19:28:17 by mben-zeh          #+#    #+#              #
-#    Updated: 2024/02/15 12:54:42 by mben-zeh         ###   ########.fr        #
+#    Updated: 2024/02/18 09:37:44 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,7 @@ NAME = whatever
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
-
-#-fsanitize=address -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 SRCS = main.cpp 
 

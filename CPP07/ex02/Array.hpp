@@ -6,15 +6,15 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:28:25 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/17 17:11:16 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/18 18:49:42 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <cstdlib>
-template <class T>
 
+template <typename T>
 class Array
 {
 private:
@@ -22,7 +22,7 @@ private:
     unsigned int _size;
 public:
     Array(void);
-    Array(unsigned int&);
+    Array(unsigned int);
     Array(const Array & other);
     Array& operator=(const Array & other);
     T& operator[](const int &);
@@ -30,19 +30,19 @@ public:
     ~Array(void);
 };
 
-template <class T>
+template <typename T>
 Array<T>::Array():arr(NULL),_size(0)
 {
     //std::cout << "Array Default constructor called" << std::endl;
 }
 
-template <class T>
+template <typename T>
 Array<T>::Array(unsigned int size):arr(new T[size]),_size(size)
 {
     //std::cout << "Array parameterized constructor called" << std::endl;
 }
 
-template <class T>
+template <typename T>
 Array<T>::Array(const Array& other)
 {
     this->arr = new T[other._size];
@@ -53,7 +53,7 @@ Array<T>::Array(const Array& other)
     }
 }
 
-template <class T>
+template <typename T>
 Array<T>& Array<T>::operator=(const Array & other)
 {
     if(&other != this)
@@ -72,22 +72,22 @@ Array<T>& Array<T>::operator=(const Array & other)
     return (*this);    
 }
 
-template <class T>
+template <typename T>
 T& Array<T>::operator[](const int& index)
 {
     if(index < 0 || index >=static_cast<int>(_size))
     {
-        throw std::out_of_range("error : Array index out of range");
+        throw std::out_of_range("Error : Array index out of bounds");
     }
     return (arr[index]);
 }
-template <class T>
+template <typename T>
 unsigned int Array<T>::size(void)
 {
     return (_size);    
 }
 
-template <class T>
+template <typename T>
 Array<T>::~Array()
 {
     if(arr)
