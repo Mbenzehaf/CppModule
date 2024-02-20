@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:28:25 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/18 18:49:42 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/20 09:20:04 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ T& Array<T>::operator[](const int& index)
 {
     if(index < 0 || index >=static_cast<int>(_size))
     {
-        throw std::out_of_range("Error : Array index out of bounds");
+        throw std::out_of_range("Error : Index out of bounds");
     }
     return (arr[index]);
 }

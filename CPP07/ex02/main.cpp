@@ -6,14 +6,14 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:28:27 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/18 14:58:30 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/20 10:54:38 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
-
 #define MAX_VAL 750
+
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
