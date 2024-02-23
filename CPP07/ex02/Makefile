@@ -6,7 +6,7 @@
 #    By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 19:28:31 by mben-zeh          #+#    #+#              #
-#    Updated: 2024/02/20 10:54:26 by mben-zeh         ###   ########.fr        #
+#    Updated: 2024/02/23 01:54:42 by mben-zeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Array
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 #-fsanitize=address -g3
 

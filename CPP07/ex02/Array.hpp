@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:28:25 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/20 09:20:04 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:41:31 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
     Array(unsigned int);
     Array(const Array & other);
     Array& operator=(const Array & other);
-    T& operator[](const int &);
+    T& operator[](const int &) const;
     unsigned int size();
     ~Array(void);
 };
@@ -37,7 +37,7 @@ Array<T>::Array():arr(NULL),_size(0)
 }
 
 template <typename T>
-Array<T>::Array(unsigned int size):arr(new T[size]),_size(size)
+Array<T>::Array(unsigned int size):arr(new T[size]()),_size(size)
 {
     //std::cout << "Array parameterized constructor called" << std::endl;
 }
@@ -56,6 +56,7 @@ Array<T>::Array(const Array& other)
 template <typename T>
 Array<T>& Array<T>::operator=(const Array & other)
 {
+    std::cout << "ooool"<<std::endl;
     if(&other != this)
     {
         if(arr)
@@ -73,7 +74,7 @@ Array<T>& Array<T>::operator=(const Array & other)
 }
 
 template <typename T>
-T& Array<T>::operator[](const int& index)
+T& Array<T>::operator[](const int& index) const
 {
     if(index < 0 || index >=static_cast<int>(_size))
     {
@@ -81,6 +82,8 @@ T& Array<T>::operator[](const int& index)
     }
     return (arr[index]);
 }
+
+
 template <typename T>
 unsigned int Array<T>::size(void)
 {
