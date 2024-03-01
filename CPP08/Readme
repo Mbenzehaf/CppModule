@@ -1,0 +1,8 @@
+The Standard Template Library or STL in C++ :
+    is a collection of template classes and template functions that provide a generic way of programming.
+    It is a library of container classes, algorithms, and iterators.
+
+containers :
+    -A container is a holder object that stores other object objects as elemant . it is used to implement different data structures.
+    -Sequence container 
+    -associative container

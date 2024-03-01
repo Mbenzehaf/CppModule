@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 09:51:29 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/29 06:34:57 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/03/01 03:44:04 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 class Span{
   private:
-  std::vector<int> _container;
-  unsigned int _N;
+  std::vector<int> numbers;
+  unsigned int maxSize;
   Span(void);
   public:
   Span(unsigned int N);

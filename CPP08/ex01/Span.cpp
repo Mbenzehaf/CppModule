@@ -6,62 +6,59 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 09:51:42 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/29 07:19:33 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/03/01 06:59:42 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-Span::Span(void):_N(0)
+
+Span::Span(void):maxSize(0)
 {
-  
+    
 }
-Span::Span(unsigned int N):_N(N)
+Span::Span(unsigned int N):maxSize(N)
 {
-  
+      
 }
-Span::Span(const Span &other)
+Span::Span(const Span &other):maxSize(other.maxSize),numbers(other.numbers)
 {
-  for(size_t i = 0; i < other._container.size() ;  i++)
-  {
-    this->_container.push_back(other._container.at(i)); 
-  }
+    
 }
 Span& Span::operator=(const Span &other)
 {
-  if(this != &other)
-  {
-    while (this->_container.size())
+    if(this != &other)
     {
-      _container.pop_back();
+        maxSize = other.maxSize;
+        numbers = other.numbers;
     }
-    for(size_t i = 0; i < other._container.size() ;  i++)
-    {
-    this->_container.push_back(other._container.at(i)); 
-    }
-  }
-  return (*this);
+    return (*this);
 }
 Span::~Span()
 {
-  
+    
 }
 
-void Span::addNumber(const int& Number)
+void Span::addNumber(const int& N)
 {
+    if(numbers.size() >= maxSize)
+    {
+        throw std::runtime_error("Cannot add more numbers");
+    }
+    numbers.push_back(N);
 }
 int Span::shortestSpan(void)
 {
-  if(_container.size() <= 1)
-  {
-    throw std::runtime_error("no span can be found.");
-  }
-   return (*(std::min_element(_container.begin(),_container.end()) - 1 ) - *std::min_element(_container.begin(),_container.end()) );
+    if(maxSize < 2)
+    {
+        throw std::runtime_error("Cannot find span");
+    }
+    return (0);
 }
-int Span::longestSpan(void)
+int Span::longestSpan()
 {
-  if(_container.size() <= 1)
-  {
-    throw std::runtime_error("no span can be found.");
-  }
-  return (*std::max_element(_container.begin(),_container.end()) - *std::min_element(_container.begin(),_container.end()) );
+    if(maxSize < 2)
+    {
+        throw std::runtime_error("Cannot find span");
+    }
+    return (*std::max_element(numbers.begin(),numbers.end()) - *std::min_element(numbers.begin(),numbers.end()));
 }
