@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 09:46:38 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/02/29 06:11:57 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/03/02 04:07:03 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int main(void)
 {
-   std::vector<int> v;
-   v.push_back(6);
-   v.push_back(3);
-   v.push_back(17);
-   v.push_back(9);
-   v.push_back(11);
-
-   std::sort(v.begin(),v.end());
-   std::cout << *v.begin() << std::endl;
+   Span sp = Span(10000);
+   for(int i = 0; i < 10000 ; i++)
+   {
+      sp.addNumber(std::rand());
+   }
+   
+   std::cout << sp.shortestSpan() << std::endl;
+   std::cout << sp.longestSpan() << std::endl;
+   return (0);
 }

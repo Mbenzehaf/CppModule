@@ -6,7 +6,7 @@
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 09:51:42 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/03/01 06:59:42 by mben-zeh         ###   ########.fr       */
+/*   Updated: 2024/03/02 04:02:14 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Span::Span(void):maxSize(0)
 }
 Span::Span(unsigned int N):maxSize(N)
 {
-      
+    
 }
 Span::Span(const Span &other):maxSize(other.maxSize),numbers(other.numbers)
 {
@@ -48,11 +48,23 @@ void Span::addNumber(const int& N)
 }
 int Span::shortestSpan(void)
 {
+    std::vector<int> tmp;
+   
     if(maxSize < 2)
     {
         throw std::runtime_error("Cannot find span");
     }
-    return (0);
+    tmp = numbers;
+    std::sort(tmp.begin(),tmp.end());
+    int distance = (tmp.at(1) - tmp.at(0));
+    for(size_t i = 0; i < (tmp.size() - 1); i++)
+    {
+        if(distance > (tmp[i + 1] - tmp[i]))
+        {
+            distance = tmp.at(i + 1) - tmp.at(i);
+        }
+    }
+    return (distance);
 }
 int Span::longestSpan()
 {
