@@ -5,72 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 09:51:42 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/03/02 04:02:14 by mben-zeh         ###   ########.fr       */
+/*   Created: 2024/03/07 08:33:47 by mben-zeh          #+#    #+#             */
+/*   Updated: 2024/03/09 14:47:05 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(void):maxSize(0)
+Span::Span(void):max_Size(0)
 {
-    
+    //std::cout << "Span Default constructor called" << std::endl;
 }
-Span::Span(unsigned int N):maxSize(N)
+Span::Span(unsigned int n):max_Size(n)
 {
-    
+    //std::cout << "Span parameterized constructor called" << std::endl;
 }
-Span::Span(const Span &other):maxSize(other.maxSize),numbers(other.numbers)
+Span::Span(const Span &other)
 {
-    
+    *this = other; 
+    //std::cout << "Span Copy constructor called" << std::endl;
 }
 Span& Span::operator=(const Span &other)
 {
+    //std::cout << "Span Copy assignment operator called" << std::endl;
     if(this != &other)
     {
-        maxSize = other.maxSize;
+        max_Size = other.max_Size;
         numbers = other.numbers;
     }
     return (*this);
-}
+} 
 Span::~Span()
 {
-    
+    //std::cout << "Span destructor called" << std::endl;
 }
 
-void Span::addNumber(const int& N)
+void Span::addNumber(const int & number)
 {
-    if(numbers.size() >= maxSize)
+    if(max_Size <= this->numbers.size())
     {
-        throw std::runtime_error("Cannot add more numbers");
+        throw std::runtime_error("Span is full");
     }
-    numbers.push_back(N);
+    numbers.push_back(number);
 }
-int Span::shortestSpan(void)
+
+void Span::addNumbers(const std::vector<int>& numbers)
 {
-    std::vector<int> tmp;
-   
-    if(maxSize < 2)
+    if(numbers.size() + this->numbers.size() > max_Size)
     {
-        throw std::runtime_error("Cannot find span");
+        throw std::runtime_error("Span is full");
     }
-    tmp = numbers;
-    std::sort(tmp.begin(),tmp.end());
-    int distance = (tmp.at(1) - tmp.at(0));
-    for(size_t i = 0; i < (tmp.size() - 1); i++)
+    this->numbers.insert(this->numbers.end(),numbers.begin(),numbers.end());
+}
+
+
+unsigned int Span::shortestSpan() const
+{
+    unsigned int minSpin;
+    if(numbers.size() >= 2)
     {
-        if(distance > (tmp[i + 1] - tmp[i]))
+        std::vector<int> temp(numbers);
+        std::sort(temp.begin(),temp.end());
+        std::vector<int>::iterator it ;
+        for(it = temp.begin() + 1 , minSpin = (*it - *(it-1));it != temp.end();it++)
         {
-            distance = tmp.at(i + 1) - tmp.at(i);
+            if(minSpin > static_cast<unsigned int>(*it - *(it-1)))
+            {
+                minSpin = (*it - *(it-1));
+            }
         }
-    }
-    return (distance);
-}
-int Span::longestSpan()
-{
-    if(maxSize < 2)
+    }else
     {
-        throw std::runtime_error("Cannot find span");
+        throw std::runtime_error("Span is empty");
     }
-    return (*std::max_element(numbers.begin(),numbers.end()) - *std::min_element(numbers.begin(),numbers.end()));
+    return (minSpin);
+}
+unsigned int Span::longestSpan() const
+{
+    if(numbers.size() >= 2)
+    {
+        int max,min;
+        max = *std::max_element(numbers.begin(),numbers.end());
+        min = *std::min_element(numbers.begin(),numbers.end());
+        return (max - min);
+    }else
+    {
+        throw std::runtime_error("Span is empty");
+    }
 }

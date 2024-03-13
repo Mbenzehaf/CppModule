@@ -5,42 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 09:54:14 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/03/04 10:54:21 by mben-zeh         ###   ########.fr       */
+/*   Created: 2024/03/08 11:47:34 by mben-zeh          #+#    #+#             */
+/*   Updated: 2024/03/09 11:23:11 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "iostream"
+
+#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <stack>
-#include <iterator>
 #include <deque>
+#include <algorithm>
 #include <list>
 
-template <typename _Tp>
-
-class MutantStack: public std::stack<_Tp>
+template<typename T >
+class MutantStack : public std::stack<T>
 {
-private:
-    /* data */
-public:
-    MutantStack(/* args */){};
-    MutantStack(const MutantStack &){};
-    MutantStack& operator=(const MutantStack &)
+    public :
+    typedef typename std::deque<T>::iterator iterator;
+    MutantStack(void){};
+    MutantStack(const MutantStack &other)
     {
+        *this = other;
+    };
+    MutantStack& operator=(const MutantStack &other)
+    {
+        if(this != &other)
+        {
+            this->c = other.c;
+        }
         return (*this);
     };
 
-    typedef typename std::deque<_Tp>::iterator iterator;
     iterator begin(void)
     {
-     return this->c.begin();   
+        return (this->c.begin());
     }
     iterator end(void)
     {
-     return this->c.end();   
+        return (this->c.end());
     }
     ~MutantStack(){};
 };

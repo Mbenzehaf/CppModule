@@ -5,30 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mben-zeh <mben-zeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 09:51:29 by mben-zeh          #+#    #+#             */
-/*   Updated: 2024/03/01 22:40:34 by mben-zeh         ###   ########.fr       */
+/*   Created: 2024/03/07 08:33:44 by mben-zeh          #+#    #+#             */
+/*   Updated: 2024/03/09 12:40:02 by mben-zeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
 #include <iostream>
-#include <vector>  
-#include <iterator>
-#include "algorithm"
+#include <vector>
+#include <algorithm>
+#include <limits.h>
+#include <cmath>
 
-class Span{
-  private:
-  unsigned int maxSize;
-  std::vector<int> numbers;
-  Span(void);
-  public:
-  Span(unsigned int N);
-  Span(const Span &);
-  Span& operator=(const Span &);
-  ~Span();
-
-  void addNumber(const int &);
-  int shortestSpan();
-  int longestSpan();
+class Span
+{
+private:
+    unsigned int max_Size;
+    std::vector<int> numbers;
+    Span(void);
+public:
+    Span(unsigned int);
+    Span(const Span &);
+    Span& operator=(const Span &);
+    void addNumber(const int & );
+    
+    void addNumbers(const std::vector<int>& );
+    unsigned int shortestSpan() const;
+    unsigned int longestSpan() const;
+    ~Span();
 };
+

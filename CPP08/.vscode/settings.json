@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdexcept": "cpp",
+        "iosfwd": "cpp",
+        "stack": "cpp",
+        "algorithm": "cpp"
+    }
+}
